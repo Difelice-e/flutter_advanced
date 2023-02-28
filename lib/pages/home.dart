@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_advanced/models/mail.dart';
 
+import 'package:flutter_advanced/pages/details.dart';
+
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
@@ -32,7 +34,13 @@ class HomePage extends StatelessWidget {
     final color = colors[index % colors.length];
 
     return ListTile(
-      onTap: () => {},
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          DetailPage.routeName,
+          arguments: DetailPageArgs(mail: mail, color: color),
+        );
+      },
       leading: CircleAvatar(
         radius: 25,
         backgroundColor: color,
